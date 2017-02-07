@@ -1,0 +1,216 @@
+@import (reference) "public";
+
+html {
+  font-size: 100px; /*在640px的设计稿，1REM=100px*/
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /*横向滚动条去掉*/
+  background: #f4f4f4;
+}
+
+/*header*/
+.header {
+  height: .88rem;
+  background: @color-blue;
+  .logo, .type, .login, .menu {
+    float: left;
+    line-height: .88rem;
+    font-size: .32rem;
+    color: @color-white;
+    font-weight: normal;
+  }
+  .login, .menu {
+    float: right;
+  }
+  /*LOGO*/
+  .logo {
+    box-sizing: border-box;
+    padding-left: .7rem;
+    width: 2.16rem;
+    border-right: .02rem solid darken(@color-blue, 15%);
+    background: url("../img/icon-logo.png") no-repeat 0.1rem center; /*距离左10px 垂直居中*/
+    background-size: .48rem .48rem;
+  }
+  /*TYPE*/
+  .type {
+    padding: 0 .2rem;
+    border-left: .02rem solid lighten(@color-blue, 15%);
+  }
+  /*LOGIN*/
+  .login {
+    padding: 0 .2rem;
+  }
+  /*MENU*/
+  .menu {
+    width: .88rem;
+    height: .88rem;
+    background: url("../img/btn-nav-fold.png") no-repeat center center;
+    background-size: 50% 50%;
+  }
+}
+
+/*nav*/
+.nav {
+  .transition(@duration: .3s);
+  padding: 0; /*0.1rem*/
+  height: 0; /*2.22rem;*/
+  overflow: hidden;
+  li {
+    float: left;
+    width: 16%;
+    &:nth-child(6n+1) {
+      margin-left: 2%;
+    }
+    a {
+      display: block;
+      height: .74rem;
+      line-height: .74rem;
+      text-align: center;
+      font-size: .32rem;
+      color: @color-555;
+    }
+  }
+}
+
+/*VIDEO*/
+.video {
+  height: 3.6rem;
+  background: #000;
+  video {
+    width: 100%;
+    height: 100%
+  }
+}
+
+/*MATCH*/
+.match {
+  padding: .3rem;
+  background: @color-white;
+  /*TOP*/
+  .top {
+    height: .6rem;
+    div {
+      float: left;
+      height: 100%;
+      width: 34%;
+      line-height: .6rem;
+      &.center {
+        width: 32%;
+        text-align: center;
+        color: lighten(@color-555, 20%);
+        font-size: .24rem;
+      }
+    }
+    .left {
+      text-align: left;
+      img {
+        display: inline-block;
+        width: .6rem;
+        height: .6rem;
+        vertical-align: middle;
+      }
+      span {
+        display: inline-block;
+        height: .6rem;
+        margin-left: .24rem;
+        color: @color-555;
+        font-size: .4rem;
+        vertical-align: middle;
+      }
+    }
+    .right {
+      .left;
+      text-align: right;
+      span {
+        margin-left: 0;
+        margin-right: .24rem;
+      }
+    }
+  }
+
+  /*MIDDLE*/
+  .middle {
+    position: relative;
+    height: .04rem;
+    margin: .2rem auto;
+    background: @color-blue;
+    .progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: @color-red;
+    }
+  }
+
+  /*bottom*/
+  .bottom {
+    height: .4rem;
+    line-height: .4rem;
+    text-align: center;
+    color: lighten(@color-555, 20%);
+    font-size: .24rem;
+    div {
+      width: 34%;
+      float: left;
+      height: 100%;
+      &.center {
+        width: 32%;
+      }
+    }
+    .left {
+      background: url("../img/support-left.png") no-repeat left center;
+      background-size: .24rem .24rem;
+      &.bg {
+        color: @color-red;
+        background: url("../img/support-red.png") no-repeat left center;
+      }
+    }
+    .right {
+      background: url("../img/support-right.png") no-repeat right center;
+      background-size: .24rem .24rem;
+      &.bg {
+        color: @color-blue;
+        background: url("../img/support-blue.png") no-repeat right center;
+      }
+    }
+  }
+}
+
+/*player*/
+.player{
+  padding: .2rem .3rem;
+  background: @color-white;
+  overflow: hidden;
+  li{
+    float: left;
+    width:2.2rem;
+    margin-right: .2rem;
+    div{
+      position: relative;
+      height:1.24rem;
+      img{
+        width:100%;
+        height:100%;
+      }
+      em{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding: .08rem;
+        font-size: .24rem;
+        color: @color-white;
+        font-style:normal;
+        background: rgba(0,0,0,.5);
+      }
+    }
+    p{
+      line-height: .3rem;
+      font-size: .24rem;
+      color:@color-555;
+    }
+  }
+}
