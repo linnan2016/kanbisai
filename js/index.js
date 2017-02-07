@@ -82,7 +82,6 @@ var matchRender = (function () {
         if(supportInfo){
             //以前支持过
             supportInfo=JSON.parse(supportInfo);
-            console.log(supportInfo.type)
             supportInfo.type==1?$supportLeft.addClass('bg'):$supportRight.addClass('bg');
             return
         }
@@ -99,13 +98,6 @@ var matchRender = (function () {
                 rightNum = parseFloat($supportRight.html());
             $progress.css('width', (leftNum / (leftNum + rightNum)) * 100 + '%');
 
-            //->告诉服务器支持的是谁
-            var type=$(this).attr('data-type');
-            $.ajax({
-                url:'http://matchweb.sports.qq.com/kbs/teamSupport?mid=100000:1469151&type='+type,
-                type:'get',
-                dataType:'jsonp'
-            });
 
             //->为了保证下一次再加载页面的时候不会重复的支持，我们把本次支持的信息存储到本地，下一次打开页面，先从本地获取，看是否支持过
             //localStorage存储的只能是字符串格式的
@@ -120,9 +112,9 @@ var matchRender = (function () {
         init: function () {
             //-> jsonp get data
             $.ajax({
-                url: 'http://matchweb.sports.qq.com/html/matchDetail?mid=100000:1469151',
+                url: './json/match.json',
                 type: 'get',
-                dataType: 'jsonp',
+                dataType: 'json',
                 cache: false,
                 success: function (result) {
                     if (result && result[0] == 0) {
@@ -158,8 +150,8 @@ var playerRender = (function () {
     return {
         init: function () {
             $.ajax({
-                url: 'http://matchweb.sports.qq.com/html/matchStatV37?mid=100000:1469151',
-                dataType: 'jsonp',
+                url: './json/player.json',
+                dataType: 'json',
                 type: 'get',
                 success: function (result) {
                     if (result && result[0] == 0) {
